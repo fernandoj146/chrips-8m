@@ -19,7 +19,14 @@ Esta guía explica cómo hemos implementado autenticación básica en nuestra ap
 
 ## 1. Formulario de Registro
 
-### 📄 Vista del Formulario
+### � Crear el Directorio
+Primero, crea el directorio para las vistas de autenticación:
+
+```bash
+mkdir resources/views/auth
+```
+
+### �📄 Vista del Formulario
 **Archivo:** `resources/views/auth/register.blade.php`
 
 ```blade
@@ -86,6 +93,19 @@ Esta guía explica cómo hemos implementado autenticación básica en nuestra ap
 ---
 
 ## 2. Controlador de Registro
+
+### 🔨 Generar el Controlador
+Usa Artisan para crear un controlador invokable:
+
+```bash
+php artisan make:controller Auth/Register --invokable
+```
+
+**¿Qué es un controlador invokable?**
+- Es un controlador de **una sola acción**
+- Solo tiene el método `__invoke()`
+- Ideal para acciones específicas como registro, login, logout
+- Más organizado que un controlador con muchos métodos
 
 ### 🎮 Controlador Invokable
 **Archivo:** `app/Http/Controllers/Auth/Register.php`
@@ -289,7 +309,16 @@ public function memes(): HasMany
 
 ## 7. Autorización con $this->authorize()
 
-### 🛡️ Políticas de Autorización
+### � Generar la Policy
+Usa Artisan para crear una policy:
+
+```bash
+php artisan make:policy MemePolicy --model=Meme
+```
+
+Esto genera automáticamente una policy con métodos para el modelo Meme.
+
+### �🛡️ Políticas de Autorización
 **Archivo:** `app/Policies/MemePolicy.php`
 
 ```php
@@ -312,6 +341,13 @@ class MemePolicy
         return $meme->user_id === $user->id;
     }
 }
+```
+
+### ⚠️ Importante: Trait AuthorizesRequests
+Para usar `$this->authorize()`, el controlador debe incluir el trait:
+
+```php
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 ```
 
 ### 🎮 Usar en el Controlador
