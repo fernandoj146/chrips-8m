@@ -11,6 +11,7 @@ class Meme extends Model
         'meme_url',
         'explicacion',
         'fecha_subida',
+        'user_id',
     ];
 
     protected $casts = [

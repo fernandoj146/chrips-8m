@@ -5,11 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ $title ?? '8M-Chirper' }}</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
 <body class="bg-gray-100">
     <header class="bg-blue-600 text-white p-4">
-        <div class="max-w-4xl mx-auto">
+        <div class="max-w-4xl mx-auto flex justify-between items-center">
             <h1 class="text-2xl font-bold">{{ $title ?? '8M-Chirper' }}</h1>
+            <div class="flex items-center gap-4">
+                @auth
+                    <span class="text-sm">{{ auth()->user()->name }}</span>
+                    <form method="POST" action="/logout" class="inline">
+                        @csrf
+                        <button type="submit" class="text-white hover:text-gray-200 text-sm">Cerrar Sesión</button>
+                    </form>
+                @else
+                    <a href="/login" class="text-white hover:text-gray-200 text-sm">Iniciar Sesión</a>
+                    <a href="/register" class="bg-white text-blue-600 px-4 py-2 rounded hover:bg-gray-100 text-sm font-semibold">Registrarse</a>
+                @endauth
+            </div>
         </div>
     </header>
 

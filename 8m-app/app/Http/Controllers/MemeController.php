@@ -36,33 +36,26 @@ class MemeController extends Controller
             'explicacion.max' => 'La explicación debe tener máximo 1000 caracteres.',
         ]);
 
-        // Create the meme (no user for now - we'll add auth later)
-        Meme::create([
+        auth()->user()->memes()->create([
             'meme_url' => $validated['meme_url'],
             'explicacion' => $validated['explicacion'],
-            'user_id' => null, // We'll add authentication later
             'fecha_subida' => now(),
         ]);
 
-        // Redirect back to the feed
         return redirect('/')->with('success', '¡Tu meme ha sido publicado!');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(Meme $meme)
     {
-        // We'll add authorization later
+        $this->authorize('update', $meme);
+
         return view('memes.edit', compact('meme'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, Meme $meme)
     {
-        // Validate the request
+        $this->authorize('update', $meme);
+
         $validated = $request->validate([
             'meme_url' => 'required|url|max:500',
             'explicacion' => 'required|string|max:1000',
@@ -79,11 +72,10 @@ class MemeController extends Controller
         return redirect('/')->with('success', '¡Meme actualizado correctamente!');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Meme $meme)
     {
+        $this->authorize('delete', $meme);
+
         $meme->delete();
 
         return redirect('/')->with('success', '¡Meme eliminado correctamente!');
