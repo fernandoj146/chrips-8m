@@ -42,22 +42,21 @@
                 </div>
 
                 {{-- Botones de acción --}}
-                @can('update', $meme)
-                    <div class="flex gap-1">
-                        <a href="/memes/{{ $meme->id }}/edit" class="text-blue-600 hover:text-blue-800 text-sm px-2 py-1">
-                            Editar
-                        </a>
-                        <form method="POST" action="/memes/{{ $meme->id }}" class="inline">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit"
-                                onclick="return confirm('¿Estás seguro de que quieres eliminar este meme?')"
-                                class="text-red-600 hover:text-red-800 text-sm px-2 py-1">
-                                Eliminar
-                            </button>
-                        </form>
-                    </div>
-                @endcan
+                {{-- TODO: Envolver en @can('update', $meme) (ver guía paso 8) --}}
+                <div class="flex gap-1">
+                    <a href="/memes/{{ $meme->id }}/edit" class="text-blue-600 hover:text-blue-800 text-sm px-2 py-1">
+                        Editar
+                    </a>
+                    <form method="POST" action="/memes/{{ $meme->id }}" class="inline">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit"
+                            onclick="return confirm('¿Estás seguro de que quieres eliminar este meme?')"
+                            class="text-red-600 hover:text-red-800 text-sm px-2 py-1">
+                            Eliminar
+                        </button>
+                    </form>
+                </div>
             </div>
 
             {{-- Meme --}}

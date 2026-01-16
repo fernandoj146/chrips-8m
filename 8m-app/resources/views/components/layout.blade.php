@@ -12,16 +12,9 @@
         <div class="max-w-4xl mx-auto flex justify-between items-center">
             <h1 class="text-2xl font-bold">{{ $title ?? '8M-Chirper' }}</h1>
             <div class="flex items-center gap-4">
-                @auth
-                    <span class="text-sm">{{ auth()->user()->name }}</span>
-                    <form method="POST" action="/logout" class="inline">
-                        @csrf
-                        <button type="submit" class="text-white hover:text-gray-200 text-sm">Cerrar Sesión</button>
-                    </form>
-                @else
-                    <a href="/login" class="text-white hover:text-gray-200 text-sm">Iniciar Sesión</a>
-                    <a href="/register" class="bg-white text-blue-600 px-4 py-2 rounded hover:bg-gray-100 text-sm font-semibold">Registrarse</a>
-                @endauth
+                {{-- TODO: Agregar directivas @auth/@else aquí (ver guía paso 4) --}}
+                <a href="/login" class="text-white hover:text-gray-200 text-sm">Iniciar Sesión</a>
+                <a href="/register" class="bg-white text-blue-600 px-4 py-2 rounded hover:bg-gray-100 text-sm font-semibold">Registrarse</a>
             </div>
         </div>
     </header>

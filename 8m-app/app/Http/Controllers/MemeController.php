@@ -3,12 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Meme;
+use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class MemeController extends Controller
 {
-    use AuthorizesRequests;
+    // TODO: Agregar trait AuthorizesRequests aquí (ver guía paso 7)
 
     /**
      * Display a listing of the resource.
@@ -39,7 +39,8 @@ class MemeController extends Controller
             'explicacion.max' => 'La explicación debe tener máximo 1000 caracteres.',
         ]);
 
-        auth()->user()->memes()->create([
+        // TODO: Cambiar User::first() por auth()->user() (ver guía paso 6)
+        User::first()->memes()->create([
             'meme_url' => $validated['meme_url'],
             'explicacion' => $validated['explicacion'],
             'fecha_subida' => now(),
@@ -50,14 +51,16 @@ class MemeController extends Controller
 
     public function edit(Meme $meme)
     {
-        $this->authorize('update', $meme);
+        // TODO: Agregar autorización aquí (ver guía paso 7)
+        // $this->authorize('update', $meme);
 
         return view('memes.edit', compact('meme'));
     }
 
     public function update(Request $request, Meme $meme)
     {
-        $this->authorize('update', $meme);
+        // TODO: Agregar autorización aquí (ver guía paso 7)
+        // $this->authorize('update', $meme);
 
         $validated = $request->validate([
             'meme_url' => 'required|url|max:500',
@@ -77,7 +80,8 @@ class MemeController extends Controller
 
     public function destroy(Meme $meme)
     {
-        $this->authorize('delete', $meme);
+        // TODO: Agregar autorización aquí (ver guía paso 7)
+        // $this->authorize('delete', $meme);
 
         $meme->delete();
 
