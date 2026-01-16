@@ -661,3 +661,49 @@ Puedes mejorar la autenticación con:
 ---
 
 **¡Felicidades! Has implementado un sistema de autenticación completo en Laravel 🎉**
+
+---
+
+## 👥 Usuarios de Prueba
+
+Para probar la aplicación, puedes usar estos usuarios que ya están registrados en la base de datos:
+
+### Usuario 1: Test User
+```
+📧 Email: test@example.com
+🔑 Contraseña: password
+```
+
+### Usuario 2: Sofía López
+```
+📧 Email: sofia@example.com
+🔑 Contraseña: password123
+```
+
+### Usuario 3: Miguel Fernández
+```
+📧 Email: miguel@example.com
+🔑 Contraseña: 12345678
+```
+
+### Usuario 4: Laura Martínez
+```
+📧 Email: laura@example.com
+🔑 Contraseña: larau123
+```
+
+---
+
+### 🧪 Pruebas Sugeridas
+
+1. **Inicia sesión** con cualquiera de estos usuarios
+2. **Crea un nuevo meme** con tu usuario
+3. **Intenta editar** un meme de otro usuario (verás que no aparecen los botones)
+4. **Cierra sesión** y vuelve a entrar con otro usuario
+5. **Verifica** que cada usuario solo puede editar/eliminar sus propios memes
+
+**Nota:** Si ejecutaste las migraciones con `--seed`, estos usuarios ya están disponibles. Si no, ejecuta:
+```bash
+php artisan db:seed
+```
+
