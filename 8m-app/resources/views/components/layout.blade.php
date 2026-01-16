@@ -15,7 +15,7 @@
                 @auth
                     <span class="text-sm">{{ auth()->user()->name }}</span>
                     <form method="POST" action="/logout" class="inline">
-                        @csrf
+                        @csrf <!-- Token de seguridad obligatorio en todos los formularios POST/PUT/DELETE -->
                         <button type="submit" class="text-white hover:text-gray-200 text-sm">Cerrar Sesión</button>
                     </form>
                 @else
