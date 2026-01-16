@@ -32,40 +32,29 @@ Contiene el proyecto **SIN autenticación**, listo para que los estudiantes la i
 ### 1. Clonar el repositorio
 ```bash
 git clone <URL-DEL-REPO>
-cd chrips-8m/8m-app
+cd trabajoClase8M/8m-app
 ```
 
-### 2. Cambiar a la rama de práctica
-```bash
-git checkout leccion-10-base
-```
-
-### 3. Instalar dependencias
+### 2. Instalar dependencias
 ```bash
 composer install
 npm install
 ```
 
-### 4. Configurar el entorno
+### 3. Configurar el entorno
 ```bash
 cp .env.example .env
 php artisan key:generate
 ```
 
-### 5. Crear la base de datos
+### 4. Crear la base de datos
 ```bash
 touch database/database.sqlite
 php artisan migrate
 php artisan db:seed
 ```
 
-### 6. Seguir la guía
+### 5. Seguir la guía
 Abre el archivo `GUIA_AUTH_CLASE.md` y sigue los 8 pasos para implementar autenticación.
 
-### 7. Verificar tu trabajo (opcional)
-Si te atascas o quieres comparar tu solución:
-```bash
-git checkout main
-```
 
----
