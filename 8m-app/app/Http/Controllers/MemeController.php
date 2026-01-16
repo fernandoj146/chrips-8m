@@ -4,9 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\Meme;
 use Illuminate\Http\Request;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class MemeController extends Controller
 {
+    use AuthorizesRequests;
+
     /**
      * Display a listing of the resource.
      */

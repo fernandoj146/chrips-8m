@@ -14,6 +14,8 @@ Route::view('/register', 'auth.register')->middleware('guest')->name('register')
 Route::post('/register', Register::class)->middleware('guest');
 Route::view('/login', 'auth.login')->middleware('guest')->name('login');
 Route::post('/login', Login::class)->middleware('guest');
+
+// Rutas para Auth
 Route::post('/logout', Logout::class)->middleware('auth');
 
 // Protected routes
