@@ -1,20 +1,4 @@
-# 📚 Instrucciones para usar el proyecto 8M-Chirper
-
-Este proyecto tiene dos ramas para facilitar la enseñanza de autenticación en Laravel.
-
-## 🌿 Ramas disponibles
-
-### `main` - Versión completa
-Contiene el proyecto **CON autenticación completa** implementada:
-- ✅ Sistema de registro
-- ✅ Sistema de login/logout
-- ✅ Protección de rutas con middleware
-- ✅ Autorización con Policies
-- ✅ Directivas @auth y @can
-
-**Usar esta rama para:** Ver el código final, demostrar funcionamiento completo.
-
-### `leccion-10-base` - Para práctica de estudiantes
+### Para práctica de estudiantes
 Contiene el proyecto **SIN autenticación**, listo para que los estudiantes la implementen:
 - ✅ Modelos (User, Meme, Chirp)
 - ✅ Migraciones y relaciones
@@ -23,7 +7,7 @@ Contiene el proyecto **SIN autenticación**, listo para que los estudiantes la i
 - ❌ **NO** tiene autenticación
 - 📝 Incluye comentarios `TODO` en el código
 
-**Usar esta rama para:** Que los estudiantes practiquen siguiendo `GUIA_AUTH_CLASE.md`
+`GUIA_AUTH_CLASE.md`
 
 ---
 
