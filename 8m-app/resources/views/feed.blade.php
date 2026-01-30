@@ -11,17 +11,16 @@
             <form method="POST" action="/memes">
                 @csrf
                 <div class="mb-4">
-                    <label for="meme_url" class="block text-sm font-medium text-gray-700 mb-2">URL del Meme</label>
-                    <input
-                        type="url"
-                        name="meme_url"
-                        id="meme_url"
-                        placeholder="https://ejemplo.com/meme.jpg"
-                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent @error('meme_url') border-red-500 @enderror"
-                        value="{{ old('meme_url') }}"
+                    <label for="meme_texto" class="block text-sm font-medium text-gray-700 mb-2">Texto del Meme</label>
+                    <textarea
+                        name="meme_texto"
+                        id="meme_texto"
+                        placeholder="Escribe aquí el texto de tu meme..."
+                        rows="4"
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent @error('meme_texto') border-red-500 @enderror"
                         required
-                    />
-                    @error('meme_url')
+                    >{{ old('meme_texto') }}</textarea>
+                    @error('meme_texto')
                         <p class="mt-1 text-sm text-red-500">{{ $message }}</p>
                     @enderror
                 </div>

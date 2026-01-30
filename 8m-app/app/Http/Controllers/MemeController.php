@@ -30,17 +30,17 @@ class MemeController extends Controller
     {
         // Validate the request
         $validated = $request->validate([
-            'meme_url' => 'required|url|max:500',
+            'meme_texto' => 'required|string|max:1000',
             'explicacion' => 'required|string|max:1000',
         ], [
-            'meme_url.required' => '¡Por favor, proporciona la URL del meme!',
-            'meme_url.url' => 'La URL del meme no es válida.',
+            'meme_texto.required' => '¡Por favor, escribe el texto del meme!',
+            'meme_texto.max' => 'El texto del meme debe tener máximo 1000 caracteres.',
             'explicacion.required' => '¡Por favor, escribe una explicación para el meme!',
             'explicacion.max' => 'La explicación debe tener máximo 1000 caracteres.',
         ]);
 
         auth()->user()->memes()->create([
-            'meme_url' => $validated['meme_url'],
+            'meme_texto' => $validated['meme_texto'],
             'explicacion' => $validated['explicacion'],
             'fecha_subida' => now(),
         ]);
@@ -60,11 +60,11 @@ class MemeController extends Controller
         $this->authorize('update', $meme);
 
         $validated = $request->validate([
-            'meme_url' => 'required|url|max:500',
+            'meme_texto' => 'required|string|max:1000',
             'explicacion' => 'required|string|max:1000',
         ], [
-            'meme_url.required' => '¡Por favor, proporciona la URL del meme!',
-            'meme_url.url' => 'La URL del meme no es válida.',
+            'meme_texto.required' => '¡Por favor, escribe el texto del meme!',
+            'meme_texto.max' => 'El texto del meme debe tener máximo 1000 caracteres.',
             'explicacion.required' => '¡Por favor, escribe una explicación para el meme!',
             'explicacion.max' => 'La explicación debe tener máximo 1000 caracteres.',
         ]);

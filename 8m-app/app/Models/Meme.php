@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Meme extends Model
 {
     protected $fillable = [
-        'meme_url',
+        'meme_texto',
         'explicacion',
         'fecha_subida',
         'user_id',

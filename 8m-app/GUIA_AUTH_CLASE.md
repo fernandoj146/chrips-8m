@@ -270,13 +270,13 @@ Route::middleware('auth')->group(function () {
 public function store(Request $request)
 {
     $validated = $request->validate([
-        'meme_url' => 'required|url|max:500',
+        'meme_texto' => 'required|string|max:1000',
         'explicacion' => 'required|string|max:1000',
     ]);
 
     // Crear meme asociado al usuario autenticado
     auth()->user()->memes()->create([
-        'meme_url' => $validated['meme_url'],
+        'meme_texto' => $validated['meme_texto'],
         'explicacion' => $validated['explicacion'],
         'fecha_subida' => now(),
     ]);

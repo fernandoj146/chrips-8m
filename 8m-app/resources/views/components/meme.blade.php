@@ -62,7 +62,9 @@
 
             {{-- Meme --}}
             <div class="flex-1 flex flex-col items-center justify-center overflow-hidden">
-                <img src="{{ $meme->meme_url }}" alt="Meme" class="rounded-lg w-full h-auto max-h-[70vh] object-cover">
+                <div class="text-center p-6 bg-gray-50 rounded-lg w-full">
+                    <p class="text-gray-800 text-xl font-medium">{{ $meme->meme_texto }}</p>
+                </div>
             </div>
 
             {{-- Botón Chirp --}}
